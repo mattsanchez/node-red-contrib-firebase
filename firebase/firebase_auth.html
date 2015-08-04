@@ -32,7 +32,7 @@
         label: function () {        // sets the default label contents
            var config = RED.nodes.node(this.firebaseconfig); //server side uses RED.nodes.getNode... go figure...
            return this.name ||
-                 (config ? "https://"+config.firebaseurl+".firebaseio.com auth" : "firebase auth")
+                 (config ? config.firebaseurl+" auth" : "firebase auth")
         },
 
         labelStyle: function () {   // sets the class to apply to the label
@@ -47,7 +47,7 @@
                     url: "firebase/"+this.id+"/auth",
                     type:"POST",
                     success: function(resp) {
-                        RED.notify("Successfully injected Firebase Authentication for: "+(this.name ||(config ? "https://"+config.firebaseurl+".firebaseio.com" : "firebase")),"success");
+                        RED.notify("Successfully injected Firebase Authentication for: "+(this.name ||(config ? config.firebaseurl : "firebase")),"success");
                     },
                     error: function(jqXHR,textStatus,errorThrown) {
                         if (jqXHR.status == 404) {

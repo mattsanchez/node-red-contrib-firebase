@@ -2,9 +2,7 @@
 
     <div class="form-row">
         <label for="node-config-input-firebaseurl"><i class="fa fa-cloud"></i> Firebase</label>
-        https://
         <input class="input-append-left" type="text" id="node-config-input-firebaseurl" placeholder="your-firebase" style="width: 28%">
-        .firebaseio.com/
     </div>
 
     <div id="node-config-input-firebaseurl-input-error-container" class="form-tips hidden">
@@ -81,8 +79,8 @@
                 //return typeof this.appid ? 'Firebase ' + this.appid : 'Firebase ' + this.email;
                 var str = 'firebase config Node Error'
 
-                if(this.firebaseurl)
-                  str = "https://"+this.firebaseurl+".firebaseio.com/"
+                // if(this.firebaseurl)
+                //   str = "https://"+this.firebaseurl+".firebaseio.com/"
 
                 //TODO: File node red bug on credentials not being set on this in the client before the label function is called
                 //TODO: BUG: Node-Red doesn't provide credentials as early as it provides defaults... Need to file a bug request so that we don't need to store data twice
